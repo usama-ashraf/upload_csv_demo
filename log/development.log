@@ -1,0 +1,1688 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20180511213212)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "dob" date, "number" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180511213212"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-11 21:33:29.921893"], ["updated_at", "2018-05-11 21:33:29.921893"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-05-12 02:45:19 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 998ms (Views: 983.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 02:56:48 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 185ms (Views: 173.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 02:56:51 +0500
+  
+AbstractController::ActionNotFound (The action 'upload_csv' could not be found for HomesController):
+  
+actionpack (5.1.6) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 02:57:09 +0500
+Started GET "/" for 127.0.0.1 at 2018-05-12 02:57:19 +0500
+Started GET "/" for 127.0.0.1 at 2018-05-12 02:57:19 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (52.1ms)
+Completed 200 OK in 91ms (Views: 88.4ms)
+
+
+Processing by HomesController#index as HTML
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (6.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 92ms (Views: 80.9ms | ActiveRecord: 0.9ms)
+
+
+Completed 200 OK in 100ms (Views: 92.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 02:57:23 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 194ms (Views: 182.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 02:57:25 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 65ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 02:57:53 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vVs+MqAM10lU3tDcXhb4WlJlnzJJliBoLL9ddlgIE7A6nlOoJXEwhE1o7rcVsXJ/98m4fqI+ZArIdc1+bcP1iA==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007f968061eba8 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-8374-royzhj.csv>, @original_filename="test.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'email' for User.):
+  
+app/controllers/uploaders_controller.rb:14:in `block in upload_data'
+app/controllers/uploaders_controller.rb:13:in `upload_data'
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 02:58:19 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8wt3gxy6adRcu82wXe8XefASn+EjVEAH4d/bV8abBeiGmtB/MMLaGFjCF/u8oJ6BV9tj4AjgR2WMjDTmzXql2w==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007f96828b74f8 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-8374-1uewvim.csv>, @original_filename="test.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 21:58:19.763794"], ["updated_at", "2018-05-11 21:58:19.763794"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 21:58:19.767333"], ["updated_at", "2018-05-11 21:58:19.767333"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 21:58:19.769580"], ["updated_at", "2018-05-11 21:58:19.769580"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 21:58:19.771642"], ["updated_at", "2018-05-11 21:58:19.771642"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 21:58:19.774144"], ["updated_at", "2018-05-11 21:58:19.774144"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 21:58:19.776622"], ["updated_at", "2018-05-11 21:58:19.776622"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 21:58:19.778657"], ["updated_at", "2018-05-11 21:58:19.778657"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 21:58:19.780542"], ["updated_at", "2018-05-11 21:58:19.780542"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 21:58:19.782465"], ["updated_at", "2018-05-11 21:58:19.782465"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 21:58:19.784376"], ["updated_at", "2018-05-11 21:58:19.784376"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 21:58:19.786555"], ["updated_at", "2018-05-11 21:58:19.786555"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 21:58:19.788633"], ["updated_at", "2018-05-11 21:58:19.788633"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 21:58:19.790635"], ["updated_at", "2018-05-11 21:58:19.790635"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 21:58:19.792854"], ["updated_at", "2018-05-11 21:58:19.792854"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 21:58:19.794845"], ["updated_at", "2018-05-11 21:58:19.794845"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 21:58:19.797491"], ["updated_at", "2018-05-11 21:58:19.797491"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 21:58:19.800815"], ["updated_at", "2018-05-11 21:58:19.800815"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 21:58:19.802946"], ["updated_at", "2018-05-11 21:58:19.802946"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 21:58:19.805094"], ["updated_at", "2018-05-11 21:58:19.805094"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 21:58:19.807429"], ["updated_at", "2018-05-11 21:58:19.807429"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 58ms (ActiveRecord: 22.9ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 02:58:19 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 02:58:45 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 02:58:47 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 02:58:57 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 55ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:02:13 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (34.2ms)
+Completed 500 Internal Server Error in 5308ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery3' with type 'application/javascript'
+Checked in these paths: 
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/app/assets/config
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/app/assets/images
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/app/assets/javascripts
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/app/assets/stylesheets
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/jquery-datatables-rails-3.4.0/app/assets/images
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/jquery-datatables-rails-3.4.0/app/assets/javascripts
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/jquery-datatables-rails-3.4.0/app/assets/media
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/jquery-datatables-rails-3.4.0/app/assets/stylesheets
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.1.6/lib/assets/compiled
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionview-5.1.6/lib/assets/compiled
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/node_modules
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/popper_js-1.12.9/assets/javascripts
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bootstrap-4.1.1/assets/stylesheets
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bootstrap-4.1.1/assets/javascripts):
+    4:     <title>UploadCsvDemo</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/javascripts/application.js:14
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1828443845930340144_70331709652860'
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:02:26 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/app/assets/config
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/app/assets/images
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/app/assets/javascripts
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/app/assets/stylesheets
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/jquery-datatables-rails-3.4.0/app/assets/images
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/jquery-datatables-rails-3.4.0/app/assets/javascripts
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/jquery-datatables-rails-3.4.0/app/assets/media
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/jquery-datatables-rails-3.4.0/app/assets/stylesheets
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.1.6/lib/assets/compiled
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionview-5.1.6/lib/assets/compiled
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /Users/usamakhan/work/upload_csv_demo/upload_csv_demo/node_modules
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/popper_js-1.12.9/assets/javascripts
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bootstrap-4.1.1/assets/stylesheets
+  /Users/usamakhan/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bootstrap-4.1.1/assets/javascripts):
+    4:     <title>UploadCsvDemo</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/javascripts/application.js:14
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1828443845930340144_70331753534440'
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:03:24 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 4840ms (Views: 4830.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:03:34 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 76ms (Views: 66.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:03:36 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 63ms (Views: 60.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:06:38 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 4988ms (Views: 4975.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:06:46 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (45.9ms)
+Completed 200 OK in 105ms (Views: 102.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:08:02 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 4151ms (Views: 4138.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:08:09 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (46.1ms)
+Completed 200 OK in 124ms (Views: 121.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:08:14 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5G0X13D0wR4RvUf9orB9mkrrqJLdHXUI6ZE7xkluv09jqHpN9Ykm0wgLeZbpF/e/70eP3ja1MWoNW6vOfKVZdw==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007fbab22d1c10 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-8793-n0n105.csv>, @original_filename="test (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test (1).csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 22:08:14.204714"], ["updated_at", "2018-05-11 22:08:14.204714"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 22:08:14.208228"], ["updated_at", "2018-05-11 22:08:14.208228"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 22:08:14.210350"], ["updated_at", "2018-05-11 22:08:14.210350"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 22:08:14.212702"], ["updated_at", "2018-05-11 22:08:14.212702"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 22:08:14.214856"], ["updated_at", "2018-05-11 22:08:14.214856"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 22:08:14.216861"], ["updated_at", "2018-05-11 22:08:14.216861"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 22:08:14.219068"], ["updated_at", "2018-05-11 22:08:14.219068"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 22:08:14.221202"], ["updated_at", "2018-05-11 22:08:14.221202"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 22:08:14.223159"], ["updated_at", "2018-05-11 22:08:14.223159"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 22:08:14.225050"], ["updated_at", "2018-05-11 22:08:14.225050"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 22:08:14.227445"], ["updated_at", "2018-05-11 22:08:14.227445"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 22:08:14.230247"], ["updated_at", "2018-05-11 22:08:14.230247"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 22:08:14.232368"], ["updated_at", "2018-05-11 22:08:14.232368"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 22:08:14.234234"], ["updated_at", "2018-05-11 22:08:14.234234"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 22:08:14.236338"], ["updated_at", "2018-05-11 22:08:14.236338"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 22:08:14.238406"], ["updated_at", "2018-05-11 22:08:14.238406"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 22:08:14.240411"], ["updated_at", "2018-05-11 22:08:14.240411"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 22:08:14.242589"], ["updated_at", "2018-05-11 22:08:14.242589"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 22:08:14.248742"], ["updated_at", "2018-05-11 22:08:14.248742"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 22:08:14.251226"], ["updated_at", "2018-05-11 22:08:14.251226"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 69ms (ActiveRecord: 22.8ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:08:14 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 77ms (Views: 74.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:08:16 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 97ms (Views: 93.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:08:18 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 66ms (Views: 64.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:21:55 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 69ms (Views: 66.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:23:25 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 237ms (Views: 233.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:24:55 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 75ms (Views: 72.6ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:24:59 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"allm0xeieKd4x96UviSdotAh5uA/sEAF7S1R99UFbssfyMEvO9rLa3y+BN9faxRad+ga4RQER2eAfr5G3uTO+A==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007fbaad90fe88 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-8793-1o9fnz9.csv>, @original_filename="test (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test (1).csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 22:24:59.133136"], ["updated_at", "2018-05-11 22:24:59.133136"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 22:24:59.135998"], ["updated_at", "2018-05-11 22:24:59.135998"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 22:24:59.138075"], ["updated_at", "2018-05-11 22:24:59.138075"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 22:24:59.140039"], ["updated_at", "2018-05-11 22:24:59.140039"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 22:24:59.142013"], ["updated_at", "2018-05-11 22:24:59.142013"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 22:24:59.143882"], ["updated_at", "2018-05-11 22:24:59.143882"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 22:24:59.146853"], ["updated_at", "2018-05-11 22:24:59.146853"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 22:24:59.151303"], ["updated_at", "2018-05-11 22:24:59.151303"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 22:24:59.153219"], ["updated_at", "2018-05-11 22:24:59.153219"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 22:24:59.155261"], ["updated_at", "2018-05-11 22:24:59.155261"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 22:24:59.157228"], ["updated_at", "2018-05-11 22:24:59.157228"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 22:24:59.159313"], ["updated_at", "2018-05-11 22:24:59.159313"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 22:24:59.161513"], ["updated_at", "2018-05-11 22:24:59.161513"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 22:24:59.165364"], ["updated_at", "2018-05-11 22:24:59.165364"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 22:24:59.168545"], ["updated_at", "2018-05-11 22:24:59.168545"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 22:24:59.170559"], ["updated_at", "2018-05-11 22:24:59.170559"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 22:24:59.172578"], ["updated_at", "2018-05-11 22:24:59.172578"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 22:24:59.174543"], ["updated_at", "2018-05-11 22:24:59.174543"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 22:24:59.176478"], ["updated_at", "2018-05-11 22:24:59.176478"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 22:24:59.178569"], ["updated_at", "2018-05-11 22:24:59.178569"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 61ms (ActiveRecord: 23.4ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:24:59 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 69ms (Views: 66.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:26:41 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k9KZDW0uI0eM2i9VhnJR1bXe2f+Unm/Yu4Z8VmB5lN7mQz7xQVaQi4ij9R5nPdgtEhcl/r8qaLrW1ZPna5g07Q==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007fbab4226160 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-8793-yrlgqt.csv>, @original_filename="test (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test (1).csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 22:26:41.212472"], ["updated_at", "2018-05-11 22:26:41.212472"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 22:26:41.216637"], ["updated_at", "2018-05-11 22:26:41.216637"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 22:26:41.219196"], ["updated_at", "2018-05-11 22:26:41.219196"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 22:26:41.221522"], ["updated_at", "2018-05-11 22:26:41.221522"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 22:26:41.223997"], ["updated_at", "2018-05-11 22:26:41.223997"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 22:26:41.226245"], ["updated_at", "2018-05-11 22:26:41.226245"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 22:26:41.229133"], ["updated_at", "2018-05-11 22:26:41.229133"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 22:26:41.232108"], ["updated_at", "2018-05-11 22:26:41.232108"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 22:26:41.234319"], ["updated_at", "2018-05-11 22:26:41.234319"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 22:26:41.236333"], ["updated_at", "2018-05-11 22:26:41.236333"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 22:26:41.238205"], ["updated_at", "2018-05-11 22:26:41.238205"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 22:26:41.240035"], ["updated_at", "2018-05-11 22:26:41.240035"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 22:26:41.242009"], ["updated_at", "2018-05-11 22:26:41.242009"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 22:26:41.245309"], ["updated_at", "2018-05-11 22:26:41.245309"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 22:26:41.249666"], ["updated_at", "2018-05-11 22:26:41.249666"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 22:26:41.251731"], ["updated_at", "2018-05-11 22:26:41.251731"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 22:26:41.253765"], ["updated_at", "2018-05-11 22:26:41.253765"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 22:26:41.255662"], ["updated_at", "2018-05-11 22:26:41.255662"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 22:26:41.257445"], ["updated_at", "2018-05-11 22:26:41.257445"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 22:26:41.259258"], ["updated_at", "2018-05-11 22:26:41.259258"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 52ms (ActiveRecord: 23.8ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:26:41 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 69ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:27:19 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"thzDxFWz4LBmCtQatgTaeKgFoyF2uUvKDAY+OMDerWrDjWQ4ectTfGJzDlFXS1OAD8xfIF0NTKhhVdGJyz8NWQ==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007fbab29d1218 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-8793-lxuel.csv>, @original_filename="test (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test (1).csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 22:27:19.342401"], ["updated_at", "2018-05-11 22:27:19.342401"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 22:27:19.345719"], ["updated_at", "2018-05-11 22:27:19.345719"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 22:27:19.347857"], ["updated_at", "2018-05-11 22:27:19.347857"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 22:27:19.349957"], ["updated_at", "2018-05-11 22:27:19.349957"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 22:27:19.352774"], ["updated_at", "2018-05-11 22:27:19.352774"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 22:27:19.357009"], ["updated_at", "2018-05-11 22:27:19.357009"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 22:27:19.359444"], ["updated_at", "2018-05-11 22:27:19.359444"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 22:27:19.361462"], ["updated_at", "2018-05-11 22:27:19.361462"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 22:27:19.363451"], ["updated_at", "2018-05-11 22:27:19.363451"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 22:27:19.365287"], ["updated_at", "2018-05-11 22:27:19.365287"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 22:27:19.367416"], ["updated_at", "2018-05-11 22:27:19.367416"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 22:27:19.370149"], ["updated_at", "2018-05-11 22:27:19.370149"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 22:27:19.372100"], ["updated_at", "2018-05-11 22:27:19.372100"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 22:27:19.373985"], ["updated_at", "2018-05-11 22:27:19.373985"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 22:27:19.375881"], ["updated_at", "2018-05-11 22:27:19.375881"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 22:27:19.377602"], ["updated_at", "2018-05-11 22:27:19.377602"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 22:27:19.379587"], ["updated_at", "2018-05-11 22:27:19.379587"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 22:27:19.381653"], ["updated_at", "2018-05-11 22:27:19.381653"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 22:27:19.383864"], ["updated_at", "2018-05-11 22:27:19.383864"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 22:27:19.387358"], ["updated_at", "2018-05-11 22:27:19.387358"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 49ms (ActiveRecord: 24.4ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:27:19 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 65ms (Views: 63.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:27:34 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BqsaTG95o1Nm0IHNxbYdosmXGGhzPSVdGghZu48lNMRzOr2wQwEQn2KpW4Yk+ZRabl7kaViJIj93W7YKhMSU9w==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007fbaae8057d0 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-8793-5cm0su.csv>, @original_filename="test (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test (1).csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 22:27:34.823971"], ["updated_at", "2018-05-11 22:27:34.823971"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 22:27:34.827314"], ["updated_at", "2018-05-11 22:27:34.827314"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 22:27:34.829574"], ["updated_at", "2018-05-11 22:27:34.829574"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 22:27:34.832025"], ["updated_at", "2018-05-11 22:27:34.832025"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 22:27:34.834036"], ["updated_at", "2018-05-11 22:27:34.834036"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 22:27:34.835948"], ["updated_at", "2018-05-11 22:27:34.835948"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 22:27:34.838057"], ["updated_at", "2018-05-11 22:27:34.838057"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 22:27:34.840213"], ["updated_at", "2018-05-11 22:27:34.840213"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 22:27:34.842432"], ["updated_at", "2018-05-11 22:27:34.842432"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 22:27:34.844429"], ["updated_at", "2018-05-11 22:27:34.844429"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 22:27:34.846400"], ["updated_at", "2018-05-11 22:27:34.846400"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 22:27:34.848450"], ["updated_at", "2018-05-11 22:27:34.848450"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 22:27:34.850428"], ["updated_at", "2018-05-11 22:27:34.850428"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 22:27:34.852425"], ["updated_at", "2018-05-11 22:27:34.852425"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 22:27:34.856345"], ["updated_at", "2018-05-11 22:27:34.856345"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 22:27:34.858707"], ["updated_at", "2018-05-11 22:27:34.858707"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 22:27:34.860795"], ["updated_at", "2018-05-11 22:27:34.860795"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 22:27:34.862883"], ["updated_at", "2018-05-11 22:27:34.862883"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 22:27:34.864963"], ["updated_at", "2018-05-11 22:27:34.864963"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 22:27:34.867924"], ["updated_at", "2018-05-11 22:27:34.867924"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 48ms (ActiveRecord: 23.6ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:27:34 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 66ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:27:39 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 87ms (Views: 84.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:27:52 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 74ms (Views: 71.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:27:53 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FWUb41vYzGectvn7uACnjj2ntxLGXLqWqJGbbAGSCeCSoHZ53qUrqoUAx5Dzpy2rmAuQXi30/vRMWwtkNFnv2A==", "commit"=>"Upload file"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/uploaders_controller.rb:8:in `upload_data'
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:28:16 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qD4zDA5+iGm3kIV5UK31U4l76FvOwcgZaJ+dGTF/myjdr5TwIgY7pbPpXzKx4nyrLrIUWuV1z3sFzHKoOp47Gw==", "commit"=>"Upload file"}
+Completed 500 Internal Server Error in 2ms
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x007fbab41cfc98>
+Did you mean?  try):
+  
+app/controllers/uploaders_controller.rb:8:in `upload_data'
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:28:35 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qD4zDA5+iGm3kIV5UK31U4l76FvOwcgZaJ+dGTF/myjdr5TwIgY7pbPpXzKx4nyrLrIUWuV1z3sFzHKoOp47Gw==", "commit"=>"Upload file"}
+Completed 500 Internal Server Error in 86226ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for true:TrueClass):
+  
+app/controllers/uploaders_controller.rb:9:in `upload_data'
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:30:07 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qD4zDA5+iGm3kIV5UK31U4l76FvOwcgZaJ+dGTF/myjdr5TwIgY7pbPpXzKx4nyrLrIUWuV1z3sFzHKoOp47Gw==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007fdd0796f258 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-9002-1geip4h.csv>, @original_filename="test (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test (1).csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 22:30:29.479724"], ["updated_at", "2018-05-11 22:30:29.479724"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 22:30:29.484152"], ["updated_at", "2018-05-11 22:30:29.484152"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 22:30:29.486689"], ["updated_at", "2018-05-11 22:30:29.486689"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 22:30:29.488886"], ["updated_at", "2018-05-11 22:30:29.488886"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 22:30:29.491035"], ["updated_at", "2018-05-11 22:30:29.491035"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 22:30:29.493212"], ["updated_at", "2018-05-11 22:30:29.493212"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 22:30:29.495086"], ["updated_at", "2018-05-11 22:30:29.495086"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 22:30:29.497374"], ["updated_at", "2018-05-11 22:30:29.497374"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 22:30:29.499633"], ["updated_at", "2018-05-11 22:30:29.499633"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 22:30:29.501877"], ["updated_at", "2018-05-11 22:30:29.501877"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 22:30:29.504103"], ["updated_at", "2018-05-11 22:30:29.504103"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 22:30:29.506233"], ["updated_at", "2018-05-11 22:30:29.506233"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 22:30:29.508089"], ["updated_at", "2018-05-11 22:30:29.508089"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 22:30:29.509975"], ["updated_at", "2018-05-11 22:30:29.509975"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 22:30:29.511873"], ["updated_at", "2018-05-11 22:30:29.511873"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 22:30:29.514580"], ["updated_at", "2018-05-11 22:30:29.514580"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 22:30:29.516780"], ["updated_at", "2018-05-11 22:30:29.516780"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 22:30:29.518663"], ["updated_at", "2018-05-11 22:30:29.518663"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 22:30:29.520547"], ["updated_at", "2018-05-11 22:30:29.520547"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 22:30:29.522531"], ["updated_at", "2018-05-11 22:30:29.522531"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 11874ms (ActiveRecord: 22.5ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:30:29 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (41.3ms)
+Completed 200 OK in 421ms (Views: 419.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:30:31 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A+9rdBTbZ7TS8S5hDPej9kr8cerY+KMHJoR/uSW5ZSN2fsyIOKPUeNaI9CrtuCoO7TWN6/NMpGVL15AILljFEA==", "commit"=>"Upload file"}
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 5392ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:30:36 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 65ms (Views: 63.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:30:42 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vBm2aS5jSgyhSpIa8lrKb6KKlFkz2UMs12nm4jiBeADJiBGVAhv5wKUzSFETFUOXBUNoWBhtRE66OglTM2DYMw==", "commit"=>"Upload file"}
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 1ms
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:30:42 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 65ms (Views: 62.5ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:30:43 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PJcvs+0KklPGVQ2AQ87G5FsUD1j8OIrCoHqKO8YlzFlJBohPwXIhn8Is18uigU8c/N3zWdeMjaDNKWWKzcRsag==", "commit"=>"Upload file"}
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 1ms
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:30:43 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 72ms (Views: 69.7ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:30:44 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rp7PvNeueBUQgtULvvRMN+KPpSUaUopfou+h6rPAcLTbD2hA+9bL2RT7D0Bfu8XPRUZZJDHmjT3PvE5buCHQhw==", "commit"=>"Upload file"}
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 1ms
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:30:44 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 63ms (Views: 60.5ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:30:45 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OfOw8VUbgJ8ciOz5OwoCbpON8AIWuuJEINN7onPABf5MYhcNeWMzUxjxNrLaRYuWNEQMAz0O5SZNgJQTeCGlzQ==", "commit"=>"Upload file"}
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 1ms
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:30:45 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 64ms (Views: 62.1ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:30:49 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Di/TNx2nVHCwwRZCGn1G+T/Ul5cIU+x6UJfcfFzyWot7vnTLMd/nvLS4zAn7Ms8BmB1rliPn6xg9xDPNVxP6uA==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007fdd0e31ace8 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-9002-1kn7f6a.csv>, @original_filename="test (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test (1).csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 22:30:49.619229"], ["updated_at", "2018-05-11 22:30:49.619229"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 22:30:49.622612"], ["updated_at", "2018-05-11 22:30:49.622612"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 22:30:49.624590"], ["updated_at", "2018-05-11 22:30:49.624590"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 22:30:49.626515"], ["updated_at", "2018-05-11 22:30:49.626515"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 22:30:49.628403"], ["updated_at", "2018-05-11 22:30:49.628403"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 22:30:49.630635"], ["updated_at", "2018-05-11 22:30:49.630635"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 22:30:49.633360"], ["updated_at", "2018-05-11 22:30:49.633360"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 22:30:49.635918"], ["updated_at", "2018-05-11 22:30:49.635918"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 22:30:49.637927"], ["updated_at", "2018-05-11 22:30:49.637927"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 22:30:49.640030"], ["updated_at", "2018-05-11 22:30:49.640030"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 22:30:49.642360"], ["updated_at", "2018-05-11 22:30:49.642360"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 22:30:49.644408"], ["updated_at", "2018-05-11 22:30:49.644408"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 22:30:49.646315"], ["updated_at", "2018-05-11 22:30:49.646315"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 22:30:49.648492"], ["updated_at", "2018-05-11 22:30:49.648492"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 22:30:49.651039"], ["updated_at", "2018-05-11 22:30:49.651039"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 22:30:49.653103"], ["updated_at", "2018-05-11 22:30:49.653103"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 22:30:49.655196"], ["updated_at", "2018-05-11 22:30:49.655196"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 22:30:49.657026"], ["updated_at", "2018-05-11 22:30:49.657026"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 22:30:49.658871"], ["updated_at", "2018-05-11 22:30:49.658871"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 22:30:49.660697"], ["updated_at", "2018-05-11 22:30:49.660697"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 58ms (ActiveRecord: 22.7ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:30:49 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 73ms (Views: 70.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:30:50 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 84ms (Views: 80.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:31:47 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 65ms (Views: 62.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:33:08 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 77ms (Views: 71.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:33:44 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 77ms (Views: 74.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:33:47 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 73ms (Views: 70.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:33:48 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 94ms (Views: 90.0ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 4]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 9]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 10]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 12]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 15]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 16]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 17]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 18]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 19]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 20]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 21]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 22]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 23]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 24]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 25]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 26]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 27]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 28]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 29]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 30]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 31]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 32]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 33]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 34]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 35]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 36]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 37]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 38]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 39]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 41]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 42]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 43]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 44]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 45]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 46]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 47]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 48]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 49]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 50]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 51]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 52]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 53]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 54]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 55]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 56]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 57]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 58]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 59]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 60]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 61]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 62]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 63]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 64]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 65]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 66]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 67]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 68]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 69]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 70]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 71]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 72]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 73]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 74]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 75]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 76]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 77]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 78]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 79]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 80]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 81]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 82]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 83]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 84]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 85]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 86]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 87]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 88]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 89]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 90]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 91]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 92]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 93]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 94]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 95]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 96]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 97]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 98]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 99]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 100]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 101]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 102]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 103]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 104]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 105]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 106]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 107]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 108]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 109]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 110]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 111]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 112]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 113]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 114]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 115]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 116]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 117]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 118]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 119]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 120]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 121]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 122]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 123]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 124]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 125]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 126]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 127]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 128]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 129]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 130]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 131]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 132]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 133]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 134]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 135]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 136]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 137]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 138]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 139]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 140]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 141]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 142]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 143]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 144]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 145]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 146]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 147]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 148]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 149]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 150]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 151]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 152]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 153]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 154]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 155]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 156]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 157]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 158]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 159]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 160]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:34:13 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 71ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_data" for 127.0.0.1 at 2018-05-12 03:34:16 +0500
+Processing by UploadersController#upload_data as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZKXOLqHmyjUT0+5Lgnn8sjRNinfPybQNmHTFVSQsq6jjYKO0JJst+Apl0CDJ3naXkeGtOyRh8G98vlVdEedNkA==", "users_by_csv"=>{"uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x007fdd0c4332d0 @tempfile=#<Tempfile:/var/folders/jv/9f672xxs3b97_tfvpzqhlrkh0000gn/T/RackMultipart20180512-9002-3io1vl.csv>, @original_filename="test (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"users_by_csv[uploaded_file]\"; filename=\"test (1).csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paul"], ["dob", "1988-08-28"], ["number", 33], ["description", "Vivamus id ligula rutrum, this man is the greatest there ever was."], ["created_at", "2018-05-11 22:34:16.782465"], ["updated_at", "2018-05-11 22:34:16.782465"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Troy"], ["dob", "1988-02-28"], ["number", 85], ["description", "Maecenas vitae ultricies purus, id posuere sem. Mauris."], ["created_at", "2018-05-11 22:34:16.786342"], ["updated_at", "2018-05-11 22:34:16.786342"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tom"], ["dob", "1982-03-15"], ["number", 37], ["description", "Maecenas a velit metus. Duis malesuada ligula et."], ["created_at", "2018-05-11 22:34:16.788670"], ["updated_at", "2018-05-11 22:34:16.788670"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Liam"], ["dob", "1988-06-22"], ["number", 35], ["description", "Nulla mollis sodales ligula, eget ultrices augue condimentum."], ["created_at", "2018-05-11 22:34:16.792146"], ["updated_at", "2018-05-11 22:34:16.792146"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jared"], ["dob", "1990-09-30"], ["number", 61], ["description", "Mauris at pulvinar ex. Vivamus quis aliquam arcu."], ["created_at", "2018-05-11 22:34:16.794211"], ["updated_at", "2018-05-11 22:34:16.794211"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jonathan"], ["dob", "1985-05-13"], ["number", 79], ["description", "Integer vitae est vel diam aliquet venenatis sit."], ["created_at", "2018-05-11 22:34:16.796315"], ["updated_at", "2018-05-11 22:34:16.796315"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrija"], ["dob", "1990-05-14"], ["number", 19], ["description", "Aenean tincidunt tellus neque, ut vulputate ante rhoncus."], ["created_at", "2018-05-11 22:34:16.798696"], ["updated_at", "2018-05-11 22:34:16.798696"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Robert"], ["dob", "1990-06-25"], ["number", 34], ["description", "Pellentesque eget tincidunt nunc. Donec in risus leo."], ["created_at", "2018-05-11 22:34:16.800727"], ["updated_at", "2018-05-11 22:34:16.800727"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jovan"], ["dob", "1990-04-24"], ["number", 75], ["description", "Sed ac porta lorem. Morbi sollicitudin accumsan odio."], ["created_at", "2018-05-11 22:34:16.803450"], ["updated_at", "2018-05-11 22:34:16.803450"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "William"], ["dob", "1990-01-03"], ["number", 2], ["description", "Donec at lorem dictum lectus tincidunt tempor. Sed."], ["created_at", "2018-05-11 22:34:16.805392"], ["updated_at", "2018-05-11 22:34:16.805392"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Federico"], ["dob", "1990-01-14"], ["number", 85], ["description", "Morbi rhoncus ligula nec diam pretium, et elementum."], ["created_at", "2018-05-11 22:34:16.807460"], ["updated_at", "2018-05-11 22:34:16.807460"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Feleti"], ["dob", "1996-03-18"], ["number", 20], ["description", "Mauris mauris dui, viverra vel erat a, molestie."], ["created_at", "2018-05-11 22:34:16.809369"], ["updated_at", "2018-05-11 22:34:16.809369"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brendan"], ["dob", "1996-04-04"], ["number", 16], ["description", "Morbi id quam sed orci laoreet venenatis. Sed."], ["created_at", "2018-05-11 22:34:16.811286"], ["updated_at", "2018-05-11 22:34:16.811286"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Michael"], ["dob", "1996-08-15"], ["number", 57], ["description", "Curabitur dapibus accumsan enim, eu sodales sem bibendum."], ["created_at", "2018-05-11 22:34:16.814682"], ["updated_at", "2018-05-11 22:34:16.814682"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tomas"], ["dob", "1997-02-01"], ["number", 29], ["description", "Proin ac congue ante. Fusce cursus tincidunt urna."], ["created_at", "2018-05-11 22:34:16.819325"], ["updated_at", "2018-05-11 22:34:16.819325"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "David"], ["dob", "1998-06-02"], ["number", 6], ["description", "Integer gravida vulputate sapien, id commodo risus imperdiet."], ["created_at", "2018-05-11 22:34:16.821385"], ["updated_at", "2018-05-11 22:34:16.821385"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Vivian"], ["dob", "1998-10-17"], ["number", 9], ["description", "Ut porta semper erat. In feugiat felis augue."], ["created_at", "2018-05-11 22:34:16.823190"], ["updated_at", "2018-05-11 22:34:16.823190"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["dob", "1999-02-08"], ["number", 40], ["description", "Praesent vel tincidunt metus, at venenatis dolor. Duis."], ["created_at", "2018-05-11 22:34:16.825255"], ["updated_at", "2018-05-11 22:34:16.825255"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Andrew"], ["dob", "1999-03-28"], ["number", 74], ["description", "Etiam in felis interdum, mattis nunc ac, congue."], ["created_at", "2018-05-11 22:34:16.827089"], ["updated_at", "2018-05-11 22:34:16.827089"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "dob", "number", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred"], ["dob", "1999-10-09"], ["number", 36], ["description", "Mauris euismod vestibulum auctor. Quisque neque metus, tristique."], ["created_at", "2018-05-11 22:34:16.829054"], ["updated_at", "2018-05-11 22:34:16.829054"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/upload_csv
+Completed 302 Found in 51ms (ActiveRecord: 22.3ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:34:16 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 65ms (Views: 63.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:34:18 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 80ms (Views: 77.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:35:36 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 66ms (Views: 63.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:35:54 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 74ms (Views: 71.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:36:09 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 64ms (Views: 61.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/upload_csv" for 127.0.0.1 at 2018-05-12 03:36:12 +0500
+Processing by UploadersController#upload_csv as HTML
+  Rendering uploaders/upload_csv.html.erb within layouts/application
+  Rendered uploaders/upload_csv.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 72ms (Views: 69.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 03:36:14 +0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered homes/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 76ms (Views: 72.6ms | ActiveRecord: 0.5ms)
+
+
