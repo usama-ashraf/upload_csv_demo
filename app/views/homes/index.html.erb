@@ -1,0 +1,38 @@
+<section id="column-filtering">
+  <%= link_to 'Upload user data through csv', upload_csv_path, :class => 'btn btn-primary' %>
+  <br>
+  <br>
+  <br>
+  <h3>Users Data</h3>
+  <div class="row">
+    <table class="datatable">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Number</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% if @users.present? %>
+          <% @users.each do |f| %>
+              <tr>
+                <td><%= f.name %></td>
+                <td><%= f.dob.try(:strftime, ("%B %d %Y at %I:%M %p")) %></td>
+                <td><%= f.number %></td>
+                <td><%= f.description %></td>
+              </tr>
+          <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+    $(document).ready(function() {
+        $('.datatable').dataTable();
+    } );
+</script>

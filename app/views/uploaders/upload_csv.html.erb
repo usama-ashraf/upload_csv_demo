@@ -1,0 +1,39 @@
+<div class="main-user-container">
+  <%= link_to 'Users date', root_path, :class => 'btn btn-primary' %>
+  <div class="app-content content container-fluid">
+    <div class="content-wrapper">
+      <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-12 col-md-10">
+          <h2>Upload CSV</h2>
+        </div>
+      </div>
+      <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+              <h5>Upload CSV of users data</h5>
+              <div class="ibox-content">
+                <div class="row">
+                  <%= simple_form_for :users_by_csv, url: upload_data_path, method: :post, :html=> {:multipart=>true, class: 'form-horizontal'}  do |f| %>
+                      <%= f.label :uploaded_file, 'Upload CSV file for Users(.csv)' %>
+                      <%= f.file_field :uploaded_file %>
+                      <br/>
+                      <%= f.submit class: "btn btn-primary send-csv", value: "Upload file", data: { disable_with: "Uploading..." }  %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+
+  .main-user-container{
+  margin-left: 20px;
+  margin-right: 65px;
+  }
+
+</style>
